@@ -36,3 +36,5 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 
 Route::get('password/confirm', 'Auth\ConfirmPasswordController@showConfirmForm')->name('password.confirm');
 Route::post('password/confirm', 'Auth\ConfirmPasswordController@confirm');
+//个人页面
+Route::resource('users','UsersController')->only('show','edit','update');
