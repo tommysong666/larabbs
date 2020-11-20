@@ -8,12 +8,26 @@ namespace App\Handlers;
 use  Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
+/**
+ * Class ImageUploadHandler
+ * @package App\Handlers
+ */
 class ImageUploadHandler
 {
     // 只允许以下后缀名的图片文件上传
+    /**
+     * @var string[]
+     */
     protected $allowed_ext = ["png", "jpg", "gif", 'jpeg','bmp'];
 
-    public function save($file, $folder, $file_prefix,$max_width=false)
+    /**
+     * @param $file
+     * @param $folder
+     * @param $file_prefix
+     * @param bool $max_width
+     * @return bool|string[]
+     */
+    public function save($file, $folder, $file_prefix, $max_width=false)
     {
         // 构建存储的文件夹规则，值如：uploads/images/avatars/201709/21/
         // 文件夹切割能让查找效率更高。
@@ -46,6 +60,11 @@ class ImageUploadHandler
             'path' => config('app.url') . "/$folder_name/$filename"
         ];
     }
+
+    /**
+     * @param $file_path
+     * @param $max_width
+     */
     public function reduceSize($file_path, $max_width)
     {
         // 先实例化，传参是文件的磁盘物理路径

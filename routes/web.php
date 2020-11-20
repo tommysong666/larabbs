@@ -42,3 +42,5 @@ Route::resource('users','UsersController')->only('show','edit','update');
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::resource('categories','CategoriesController',['only'=>['show']]);
+//创建编辑话题富文本上传图片
+Route::post('image_upload','TopicsController@imageUpload')->name('topics.image_upload');
