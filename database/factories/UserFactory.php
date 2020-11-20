@@ -25,7 +25,6 @@ $avatars = [
     'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png',
     'https://cdn.learnku.com/uploads/images/201710/14/1/NDnzMutoxX.png',
 ];
-
 $factory->define(User::class, function (Faker $faker) use ($avatars){
     $datetime=$faker->date().' '.$faker->time();
     return [
