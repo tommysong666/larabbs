@@ -45,4 +45,4 @@ Route::resource('categories','CategoriesController',['only'=>['show']]);
 //创建编辑话题富文本上传图片
 Route::post('image_upload','TopicsController@imageUpload')->name('topics.image_upload');
 
-Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('replies', 'RepliesController', ['only' => [ 'store', 'destroy']]);

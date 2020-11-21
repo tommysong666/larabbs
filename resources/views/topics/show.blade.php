@@ -43,26 +43,27 @@
             {!! $topic->body !!}
           </div>
           @can('update',$topic)
-          <div class="operate">
-            <hr>
-            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
-              <i class="far fa-edit"></i> 编辑
-            </a>
-            <form action="{{ route('topics.destroy', $topic->id) }}" method="post" onsubmit="return confirm('确认删除该话题吗？')" style="display: inline-block;">
-              {{csrf_field()}}
-              {{method_field('delete')}}
-              <button class="btn btn-outline-secondary btn-sm" type="submit">
-                <i class="far fa-trash-alt"></i> 删除
-              </button>
-            </form>
-          </div>
+            <div class="operate">
+              <hr>
+              <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-outline-secondary btn-sm" role="button">
+                <i class="far fa-edit"></i> 编辑
+              </a>
+              <form action="{{ route('topics.destroy', $topic->id) }}" method="post"
+                    onsubmit="return confirm('确认删除该话题吗？')" style="display: inline-block;">
+                {{csrf_field()}}
+                {{method_field('delete')}}
+                <button class="btn btn-outline-secondary btn-sm" type="submit">
+                  <i class="far fa-trash-alt"></i> 删除
+                </button>
+              </form>
+            </div>
           @endcan
         </div>
       </div>
       {{-- 用户回复列表 --}}
       <div class="card topic-reply mt-4">
         <div class="card-body">
-          @include('topics._reply_box', ['topic' => $topic])
+          @includeWhen(Auth::check(),'topics._reply_box', ['topic' => $topic])
           @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
         </div>
       </div>
