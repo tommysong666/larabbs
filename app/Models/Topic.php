@@ -10,6 +10,11 @@ class Topic extends Model
         'updated_at' => 'datetime:Y-m-d H:i:s',
     ];
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
