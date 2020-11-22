@@ -18,9 +18,10 @@ class ReplyObserver
         dd(\DB::getQueryLog());*/
 //        $reply->topic->reply_count=$reply->topic->replies->count();
         $reply->topic->updateReplyCount();
-        $reply->topic->save();
-        //通知话题作者有新的评论
-        $reply->topic->user->notify(new TopicReplied($reply));
+        if(!app()->runningInConsole()){
+            //通知话题作者有新的评论
+            $reply->topic->user->notify(new TopicReplied($reply));
+        }
     }
     public function creating(Reply $reply)
     {

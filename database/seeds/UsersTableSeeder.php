@@ -21,5 +21,8 @@ class UsersTableSeeder extends Seeder
             'avatar'=>'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png',
             'introduction'=>'第一位用户',
         ]);
+        $user->assignRole('Founder');
+        $user=\App\Models\User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
