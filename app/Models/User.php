@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\ActiveUserHelper;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 
 ;
@@ -17,6 +18,7 @@ class User extends Authenticatable implements MustVerifyEmailContract
 {
     use HasRoles;
     use MustVerifyEmailTrait;
+    use ActiveUserHelper;
     use Notifiable{
         notify as protected laravelNotify;
     }

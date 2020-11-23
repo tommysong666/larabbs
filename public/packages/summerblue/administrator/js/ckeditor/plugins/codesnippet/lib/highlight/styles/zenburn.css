@@ -6,7 +6,8 @@ based on dark.css by Ivan Sagalaev
 */
 
 .hljs {
-  display: block; padding: 0.5em;
+  display: block;
+  padding: 0.5em;
   background: #3F3F3F;
   color: #DCDCDC;
 }
@@ -65,7 +66,7 @@ based on dark.css by Ivan Sagalaev
 .nginx .hljs-built_in,
 .tex .hljs-command,
 .hljs-prompt {
-    color: #efef8f;
+  color: #efef8f;
 }
 
 .dos .hljs-winutils,

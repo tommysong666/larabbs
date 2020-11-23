@@ -5,8 +5,10 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 */
 
 .hljs {
-  display: block; padding: 0.5em;
-  background: #fff; color: black;
+  display: block;
+  padding: 0.5em;
+  background: #fff;
+  color: black;
 }
 
 .hljs-comment,
@@ -21,6 +23,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .nginx .hljs-title {
   color: #aa0d91;
 }
+
 .method,
 .hljs-list .hljs-title,
 .hljs-tag .hljs-title,
@@ -41,6 +44,7 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 .hljs-string {
   color: #c41a16;
 }
+
 .hljs-tag .hljs-value,
 .hljs-cdata,
 .hljs-filter .hljs-argument,
@@ -91,8 +95,9 @@ XCode style (c) Angel Garcia <angelgarcia.mail@gmail.com>
 }
 
 .hljs-variable {
- color: #3f6e74;
+  color: #3f6e74;
 }
+
 .css .hljs-tag,
 .hljs-rules .hljs-property,
 .hljs-pseudo,
