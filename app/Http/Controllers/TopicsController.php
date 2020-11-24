@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Handlers\ImageUploadHandler;
+use App\Http\Requests\TopicRequest;
 use App\Models\Category;
 use App\Models\Link;
 use App\Models\Topic;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\TopicRequest;
 use Illuminate\Support\Facades\Auth;
 
 class TopicsController extends Controller
@@ -32,6 +31,7 @@ class TopicsController extends Controller
         if(!empty($topic->slug)&&$topic->slug!=$request->slug){
             return redirect($topic->link(),301);
         }
+        $topic->increment('view_count');
         return view('topics.show', compact('topic'));
     }
 
